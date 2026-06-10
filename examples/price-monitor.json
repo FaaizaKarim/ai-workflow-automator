@@ -1,0 +1,50 @@
+{
+  "name": "Crypto Price Monitor",
+  "schedule": null,
+  "trigger": "manual",
+  "enabled": true,
+  "steps": [
+    {
+      "type": "fetch_url",
+      "config": {
+        "url": "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "ai_process",
+      "config": {
+        "prompt": "Analyse this crypto price data and decide if any alert should be fired. Alert if BTC or ETH moved more than 5% in 24h.\n\nPrice data:\n{{context.step0.body}}",
+        "systemPrompt": "You are a trading alert engine. Respond ONLY in JSON: { \"decision\": \"alert\" or \"no_alert\", \"reasoning\": \"<explanation>\", \"details\": { \"asset\": \"...\", \"change\": \"...\" } }"
+      }
+    },
+    {
+      "type": "store_result",
+      "condition": {
+        "field": "step1.decision",
+        "operator": "eq",
+        "value": "alert"
+      },
+      "config": {
+        "key": "price_alert",
+        "value": "{{context.step1}}"
+      }
+    },
+    {
+      "type": "fire_webhook",
+      "condition": {
+        "field": "step1.decision",
+        "operator": "eq",
+        "value": "alert"
+      },
+      "config": {
+        "url": "https://webhook.site/your-unique-id",
+        "payload": {
+          "alert": true,
+          "reasoning": "{{context.step1.reasoning}}",
+          "details": "{{context.step1.details}}"
+        }
+      }
+    }
+  ]
+}

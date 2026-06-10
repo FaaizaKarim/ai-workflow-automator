@@ -1,0 +1,39 @@
+{
+  "name": "Daily News Digest",
+  "schedule": "0 8 * * *",
+  "trigger": "cron",
+  "enabled": true,
+  "steps": [
+    {
+      "type": "fetch_url",
+      "config": {
+        "url": "https://hn.algolia.com/api/v1/search?tags=front_page",
+        "method": "GET"
+      }
+    },
+    {
+      "type": "ai_process",
+      "config": {
+        "prompt": "You are a tech news editor. Summarise the top 5 stories from this Hacker News API response. For each story give a one-line headline and why it matters.\n\nData:\n{{context.step0.body}}",
+        "systemPrompt": "You are a decision engine. Respond ONLY in JSON: { \"decision\": \"<your summary>\", \"reasoning\": \"<brief note on story selection>\" }"
+      }
+    },
+    {
+      "type": "store_result",
+      "config": {
+        "key": "daily_digest",
+        "value": "{{context.step1.decision}}"
+      }
+    },
+    {
+      "type": "fire_webhook",
+      "config": {
+        "url": "https://webhook.site/your-unique-id",
+        "payload": {
+          "text": "{{context.step1.decision}}",
+          "reasoning": "{{context.step1.reasoning}}"
+        }
+      }
+    }
+  ]
+}
