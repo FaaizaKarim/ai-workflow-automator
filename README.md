@@ -1,3 +1,5 @@
+<img width="960" height="420" alt="AI-1" src="https://github.com/user-attachments/assets/976376e7-0512-4444-afc6-97f5ffd974d7" />
+
 # AI Workflow Automator
 
 A Node.js REST API backend where you define automation workflows as JSON and **Claude acts as the decision-making brain** at each step — not a chatbot bolted on, but the reasoning engine inside a real pipeline.
