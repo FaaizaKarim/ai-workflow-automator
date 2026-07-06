@@ -6,6 +6,7 @@
 <img width="622" height="177" alt="AI-6" src="https://github.com/user-attachments/assets/e844c55f-dd72-4611-94e9-7b0f542f887e" />
 <img width="626" height="142" alt="AI-7" src="https://github.com/user-attachments/assets/6c1d166a-3ce8-4e9a-a0d3-f45ed474165b" />
 <img width="618" height="179" alt="AI-8" src="https://github.com/user-attachments/assets/02593c47-667e-4c6d-8c44-15cad9056180" />
+<img width="960" height="423" alt="AI-9" src="https://github.com/user-attachments/assets/7a1c21ff-e517-4589-aa0b-06fb8e29c21b" />
 
 
 
