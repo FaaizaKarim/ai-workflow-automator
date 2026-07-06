@@ -3,6 +3,8 @@
 <img width="960" height="424" alt="AI-3" src="https://github.com/user-attachments/assets/4cc2e5f7-f238-4568-82ac-fd730de23921" />
 <img width="960" height="419" alt="AI-4" src="https://github.com/user-attachments/assets/8b6158c4-fccb-40fe-9fd8-daf8dd5a43d4" />
 <img width="647" height="209" alt="AI-5" src="https://github.com/user-attachments/assets/f153e0ae-f614-4305-8f4b-2d470a96c4f9" />
+<img width="622" height="177" alt="AI-6" src="https://github.com/user-attachments/assets/e844c55f-dd72-4611-94e9-7b0f542f887e" />
+
 
 
 
